@@ -135,7 +135,7 @@ const Index = () => {
             >
               <div className="aspect-square overflow-hidden rounded-xl shadow-lg">
                 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1287&auto=format&fit=crop"
+                  src="https://scontent-ord5-2.cdninstagram.com/v/t51.2885-15/e35/110572105_292835661937850_8203215373652943883_n.jpg?_nc_ht=scontent-ord5-2.cdninstagram.com&_nc_cat=111&_nc_ohc=5YdA8PXI2QkAX9vpvL9&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MjMzNzA2MDgwNDgxNjM1MzQwMg%3D%3D.2-ccb7-5&oh=00_AfAl90CIwJo3_AHR0OImU0hD-_4YmFEuDxGrqCNhJrKLvw&oe=6560A359&_nc_sid=b41fef"
                   alt="Profile" 
                   className="w-full h-full object-cover"
                 />

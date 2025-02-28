@@ -11,6 +11,7 @@ const profileInfo = {
   phone: "+238 983 4323",
   instagram: "@thereallemonsqueeze",
   experience: "10+ years",
+  profileImage: "/lovable-uploads/25598825-54ef-490d-b8ea-37a72c310592.png"
 }
 
 // Services provided
@@ -100,6 +101,13 @@ const Index = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto"
         >
+          <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6 border-4 border-white shadow-lg">
+            <img 
+              src={profileInfo.profileImage} 
+              alt="Profile" 
+              className="w-full h-full object-cover"
+            />
+          </div>
           <span className="inline-block px-3 py-1 text-sm font-medium bg-soft-gray rounded-full mb-8 animate-fade-in">
             {profileInfo.experience} of Professional Experience
           </span>
@@ -135,7 +143,7 @@ const Index = () => {
             >
               <div className="aspect-square overflow-hidden rounded-xl shadow-lg">
                 <img 
-                  src="https://scontent-ord5-2.cdninstagram.com/v/t51.2885-15/e35/110572105_292835661937850_8203215373652943883_n.jpg?_nc_ht=scontent-ord5-2.cdninstagram.com&_nc_cat=111&_nc_ohc=5YdA8PXI2QkAX9vpvL9&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MjMzNzA2MDgwNDgxNjM1MzQwMg%3D%3D.2-ccb7-5&oh=00_AfAl90CIwJo3_AHR0OImU0hD-_4YmFEuDxGrqCNhJrKLvw&oe=6560A359&_nc_sid=b41fef"
+                  src={profileInfo.profileImage} 
                   alt="Profile" 
                   className="w-full h-full object-cover"
                 />
@@ -356,6 +364,19 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <h2 className="section-title">Get In Touch</h2>
           <div className="max-w-2xl mx-auto glass-panel p-8 rounded-2xl">
+            <div className="flex items-center justify-center mb-6">
+              <div className="w-16 h-16 rounded-full overflow-hidden mr-4 shadow-md">
+                <img 
+                  src={profileInfo.profileImage} 
+                  alt="Profile" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg">Freelance Developer</h3>
+                <p className="text-gray-600">Ready to assist with your programming needs</p>
+              </div>
+            </div>
             <div className="flex flex-col md:flex-row gap-8 mb-8">
               <div className="flex items-center">
                 <Mail className="w-5 h-5 mr-3 text-gray-400" />
@@ -422,6 +443,16 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-soft-black text-white py-12">
         <div className="container mx-auto px-4 text-center">
+          <div className="flex items-center justify-center mb-4">
+            <div className="w-10 h-10 rounded-full overflow-hidden mr-2 border border-gray-700">
+              <img 
+                src={profileInfo.profileImage} 
+                alt="Profile" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <span className="font-medium">Freelance Developer</span>
+          </div>
           <p className="mb-2">© {new Date().getFullYear()} Freelance Programming Services</p>
           <p className="text-gray-400 text-sm">All rights reserved.</p>
         </div>

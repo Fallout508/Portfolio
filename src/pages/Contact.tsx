@@ -55,8 +55,8 @@ const Contact = () => {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-500">
-                123 Innovation Drive<br />
-                San Francisco, CA 94107<br />
+                20 Dudley St<br />
+                Boston, MA 02108<br />
                 United States
               </p>
             </CardContent>
@@ -69,7 +69,7 @@ const Contact = () => {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-500">
-                info@example.com<br />
+                jaydogvermont@gmail.com<br />
                 support@example.com<br />
                 careers@example.com
               </p>
@@ -83,7 +83,7 @@ const Contact = () => {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-500">
-                Main: (555) 123-4567<br />
+                Main: +238 983 4323<br />
                 Support: (555) 987-6543<br />
                 Fax: (555) 258-9012
               </p>

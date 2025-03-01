@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Code, Bot, Cpu, Wrench, Mail, Phone, Instagram, Calendar, Clock, Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Link } from "react-router-dom";
 
 // Profile information
 const profileInfo = {
@@ -74,6 +75,58 @@ const benefits = [
   "Guaranteed availability of dedicated time each month"
 ];
 
+// Portfolio projects
+const portfolioProjects = [
+  {
+    id: 1,
+    title: "AI-Powered Personal Finance Assistant",
+    description: "An intelligent application that analyzes spending patterns, optimizes investments, and provides personalized financial advice.",
+    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    category: "AI & Finance",
+    link: "/projects/finance-assistant"
+  },
+  {
+    id: 2,
+    title: "Health Tech Platform",
+    description: "A comprehensive platform that combines wearable data, medical records, and AI to create personalized health recommendations.",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    category: "Healthcare",
+    link: "/projects/health-tech"
+  },
+  {
+    id: 3,
+    title: "Enterprise Workflow Automation",
+    description: "A suite of tools that automate repetitive business processes, increasing efficiency and reducing human error.",
+    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    category: "Business",
+    link: "/projects/workflow-automation"
+  },
+  {
+    id: 4,
+    title: "AR Shopping Experience",
+    description: "An immersive platform allowing users to visualize products in their space before purchasing, enhancing buying confidence.",
+    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    category: "AR & Retail",
+    link: "/projects/ar-shopping"
+  },
+  {
+    id: 5,
+    title: "On-Demand Expert Marketplace",
+    description: "A platform connecting people with specialists in niche fields via video chat for real-time consultation and problem-solving.",
+    image: "https://images.unsplash.com/photo-1558222218-b7b54eede3f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    category: "Marketplace",
+    link: "/projects/expert-marketplace"
+  },
+  {
+    id: 6,
+    title: "Enterprise Data Analytics Platform",
+    description: "A powerful suite of tools helping businesses make sense of their complex data for informed decision-making.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    category: "Data Analytics",
+    link: "/projects/data-analytics"
+  }
+];
+
 const Index = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -93,6 +146,36 @@ const Index = () => {
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
+      {/* Navigation */}
+      <nav className="py-4 px-6 bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div className="container mx-auto flex items-center justify-between">
+          <div className="flex items-center">
+            <div className="w-10 h-10 rounded-full overflow-hidden mr-2">
+              <img 
+                src={profileInfo.profileImage} 
+                alt="Profile" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <span className="font-semibold text-lg">Freelance Dev</span>
+          </div>
+          <div className="hidden md:flex space-x-6">
+            <Link to="/" className="hover:text-accent-dark transition-colors">Home</Link>
+            <Link to="/about" className="hover:text-accent-dark transition-colors">About</Link>
+            <Link to="/services" className="hover:text-accent-dark transition-colors">Services</Link>
+            <Link to="/projects" className="hover:text-accent-dark transition-colors">Projects</Link>
+            <Link to="/blog" className="hover:text-accent-dark transition-colors">Blog</Link>
+            <Link to="/contact" className="hover:text-accent-dark transition-colors">Contact</Link>
+          </div>
+          <Link 
+            to="/contact" 
+            className="bg-soft-black text-white px-4 py-2 rounded-lg text-sm font-medium hover-lift hidden md:block"
+          >
+            Hire Me
+          </Link>
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <section className="container mx-auto px-4 pt-20 pb-24">
         <motion.div
@@ -276,185 +359,193 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Terms and Conditions */}
+      {/* Portfolio Highlights */}
       <section className="bg-soft-gray py-20">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">Terms and Conditions</h2>
-          <div className="max-w-3xl mx-auto glass-panel p-8 rounded-2xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="font-semibold mb-3">Payment</h3>
-                <p className="text-gray-600 mb-6">The retainer fee is due on the 1st of each month via bank transfer or PayPal.</p>
-                
-                <h3 className="font-semibold mb-3">Usage</h3>
-                <p className="text-gray-600 mb-6">Unused hours do not roll over to the next month, ensuring my time is reserved exclusively for you.</p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-3">Overages</h3>
-                <p className="text-gray-600 mb-6">Additional hours beyond your package are billed at my regular rate of $100/hour.</p>
-                
-                <h3 className="font-semibold mb-3">Termination</h3>
-                <p className="text-gray-600">The agreement is month-to-month, with a 30-day written notice required to cancel from either party.</p>
-              </div>
-            </div>
+          <h2 className="section-title">Featured Projects</h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Explore my latest high-impact projects designed to solve real business problems and generate significant revenue.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {portfolioProjects.slice(0, 6).map((project) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="glass-panel overflow-hidden rounded-xl hover-lift flex flex-col h-full"
+              >
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+                <div className="p-6 flex flex-col flex-grow">
+                  <span className="text-xs font-medium text-gray-500 mb-2">{project.category}</span>
+                  <h3 className="font-semibold text-xl mb-2">{project.title}</h3>
+                  <p className="text-gray-600 text-sm mb-4 flex-grow">{project.description}</p>
+                  <Link to={project.link} className="text-soft-black font-medium flex items-center mt-auto">
+                    View Project
+                    <ArrowRight className="ml-1 w-4 h-4" />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
           </div>
-        </div>
-      </section>
-
-      {/* Portfolio Highlights */}
-      <section className="container mx-auto px-4 py-20">
-        <h2 className="section-title">Recent Work</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="overflow-hidden rounded-xl shadow-lg hover-lift"
-          >
-            <img 
-              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-              alt="Website Development" 
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4 bg-white">
-              <h3 className="font-semibold">E-Commerce Platform</h3>
-              <p className="text-gray-600 text-sm">Custom Shopping Experience</p>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="overflow-hidden rounded-xl shadow-lg hover-lift"
-          >
-            <img 
-              src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-              alt="Bot Development" 
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4 bg-white">
-              <h3 className="font-semibold">Customer Service Bot</h3>
-              <p className="text-gray-600 text-sm">Automated Response System</p>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="overflow-hidden rounded-xl shadow-lg hover-lift"
-          >
-            <img 
-              src="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-              alt="AI Automation" 
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4 bg-white">
-              <h3 className="font-semibold">AI Workflow Automation</h3>
-              <p className="text-gray-600 text-sm">Process Optimization</p>
-            </div>
-          </motion.div>
+          <div className="text-center mt-12">
+            <Link 
+              to="/projects" 
+              className="bg-soft-black text-white px-6 py-3 rounded-lg font-medium inline-flex items-center hover-lift"
+            >
+              View All Projects
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Contact Form */}
-      <section id="contact" className="bg-soft-gray py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="section-title">Get In Touch</h2>
-          <div className="max-w-2xl mx-auto glass-panel p-8 rounded-2xl">
-            <div className="flex items-center justify-center mb-6">
-              <div className="w-16 h-16 rounded-full overflow-hidden mr-4 shadow-md">
-                <img 
-                  src={profileInfo.profileImage} 
-                  alt="Profile" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg">Freelance Developer</h3>
-                <p className="text-gray-600">Ready to assist with your programming needs</p>
-              </div>
-            </div>
-            <div className="flex flex-col md:flex-row gap-8 mb-8">
-              <div className="flex items-center">
-                <Mail className="w-5 h-5 mr-3 text-gray-400" />
-                <span>{profileInfo.email}</span>
-              </div>
-              <div className="flex items-center">
-                <Phone className="w-5 h-5 mr-3 text-gray-400" />
-                <span>{profileInfo.phone}</span>
-              </div>
-              <div className="flex items-center">
-                <Instagram className="w-5 h-5 mr-3 text-gray-400" />
-                <span>{profileInfo.instagram}</span>
-              </div>
-            </div>
-            <form onSubmit={handleContact}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                  <input
-                    id="name"
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-soft-black transition-colors"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                  <input
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-soft-black transition-colors"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                <textarea
-                  id="message"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  rows={5}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-soft-black transition-colors"
-                  required
-                ></textarea>
-              </div>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="submit"
-                className="bg-soft-black text-white px-6 py-3 rounded-lg font-medium hover-lift w-full"
-              >
-                Send Message
-              </motion.button>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-soft-black text-white py-12">
-        <div className="container mx-auto px-4 text-center">
-          <div className="flex items-center justify-center mb-4">
-            <div className="w-10 h-10 rounded-full overflow-hidden mr-2 border border-gray-700">
+      <section id="contact" className="container mx-auto px-4 py-20">
+        <h2 className="section-title">Get In Touch</h2>
+        <div className="max-w-2xl mx-auto glass-panel p-8 rounded-2xl">
+          <div className="flex items-center justify-center mb-6">
+            <div className="w-16 h-16 rounded-full overflow-hidden mr-4 shadow-md">
               <img 
                 src={profileInfo.profileImage} 
                 alt="Profile" 
                 className="w-full h-full object-cover"
               />
             </div>
-            <span className="font-medium">Freelance Developer</span>
+            <div>
+              <h3 className="font-semibold text-lg">Freelance Developer</h3>
+              <p className="text-gray-600">Ready to assist with your programming needs</p>
+            </div>
           </div>
-          <p className="mb-2">© {new Date().getFullYear()} Freelance Programming Services</p>
-          <p className="text-gray-400 text-sm">All rights reserved.</p>
+          <div className="flex flex-col md:flex-row gap-8 mb-8">
+            <div className="flex items-center">
+              <Mail className="w-5 h-5 mr-3 text-gray-400" />
+              <span>{profileInfo.email}</span>
+            </div>
+            <div className="flex items-center">
+              <Phone className="w-5 h-5 mr-3 text-gray-400" />
+              <span>{profileInfo.phone}</span>
+            </div>
+            <div className="flex items-center">
+              <Instagram className="w-5 h-5 mr-3 text-gray-400" />
+              <span>{profileInfo.instagram}</span>
+            </div>
+          </div>
+          <form onSubmit={handleContact}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-soft-black transition-colors"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-soft-black transition-colors"
+                  required
+                />
+              </div>
+            </div>
+            <div className="mb-6">
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+              <textarea
+                id="message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                rows={5}
+                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-soft-black transition-colors"
+                required
+              ></textarea>
+            </div>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              type="submit"
+              className="bg-soft-black text-white px-6 py-3 rounded-lg font-medium hover-lift w-full"
+            >
+              Send Message
+            </motion.button>
+          </form>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-soft-black text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 rounded-full overflow-hidden mr-2 border border-gray-700">
+                  <img 
+                    src={profileInfo.profileImage} 
+                    alt="Profile" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <span className="font-medium">Freelance Developer</span>
+              </div>
+              <p className="text-gray-400 text-sm">
+                Specialized in crafting high-quality websites, bots, and AI agent automations.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-lg font-medium mb-4">Quick Links</h4>
+              <ul className="space-y-2">
+                <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Home</Link></li>
+                <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">About</Link></li>
+                <li><Link to="/services" className="text-gray-400 hover:text-white transition-colors">Services</Link></li>
+                <li><Link to="/projects" className="text-gray-400 hover:text-white transition-colors">Projects</Link></li>
+                <li><Link to="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-medium mb-4">Services</h4>
+              <ul className="space-y-2">
+                <li><Link to="/services#websites" className="text-gray-400 hover:text-white transition-colors">Website Development</Link></li>
+                <li><Link to="/services#maintenance" className="text-gray-400 hover:text-white transition-colors">Website Maintenance</Link></li>
+                <li><Link to="/services#bots" className="text-gray-400 hover:text-white transition-colors">Custom Bot Creation</Link></li>
+                <li><Link to="/services#ai" className="text-gray-400 hover:text-white transition-colors">AI Agent Automation</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-medium mb-4">Contact</h4>
+              <div className="space-y-2">
+                <div className="flex items-center">
+                  <Mail className="w-4 h-4 mr-2 text-gray-400" />
+                  <span className="text-gray-400">{profileInfo.email}</span>
+                </div>
+                <div className="flex items-center">
+                  <Phone className="w-4 h-4 mr-2 text-gray-400" />
+                  <span className="text-gray-400">{profileInfo.phone}</span>
+                </div>
+                <div className="flex items-center">
+                  <Instagram className="w-4 h-4 mr-2 text-gray-400" />
+                  <span className="text-gray-400">{profileInfo.instagram}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 pt-8 text-center">
+            <p className="mb-2">© {new Date().getFullYear()} Freelance Programming Services</p>
+            <p className="text-gray-400 text-sm">All rights reserved.</p>
+          </div>
         </div>
       </footer>
     </div>
